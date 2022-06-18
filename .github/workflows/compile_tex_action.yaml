@@ -1,0 +1,22 @@
+
+name: Compile-Tex
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "say_hello"
+  say_hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say Hello
+        run: echo Hello World!
+
+      - name: Say Goodbye
+        run: |
+          echo Job Finished.
+          echo Goodbye!
