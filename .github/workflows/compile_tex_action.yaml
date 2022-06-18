@@ -13,12 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Say Hello
-        run: echo Hello World
-      - name: Say Goodbye
-        run: |
-          echo Job Finished.
-          echo Goodbye!
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Ls
+        run: ls -al
+      - name: PWD
+        run: pwd
+      
   compile:
     runs-on: ubuntu-latest
     name: Compile tex CV
@@ -26,7 +27,22 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Build docker images
-        run: docker build -t local < ./Dockerfile
+        run: docker build -t local -f  Dockerfile .
       - name: Run tests
-        run: docker run -it  local
+        run: docker run  local
+    
+      - name: config
+        run: |
+          git remote set-url origin ${{ secrets.ssh }}
+          git config --local user.name "latex_compiler"
+      - name: check for changes
+        run: git status
+      - name: stage changed files
+        run: git add .
+      - name: commit changed files
+        run: git commit -m "Auto updating CV"
+      - name: fetch from master
+        run: git fetch origin master
+      - name: push code to master
+        run: git push origin HEAD:master
       
