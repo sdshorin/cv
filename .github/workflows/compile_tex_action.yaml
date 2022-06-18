@@ -6,20 +6,7 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "say_hello"
-  say_hello:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Ls
-        run: ls -al
-      - name: PWD
-        run: pwd
-      
+jobs: 
   compile:
     runs-on: ubuntu-latest
     name: Compile tex CV
@@ -33,23 +20,8 @@ jobs:
     
       - name: Commit changes
         run: |
-          git config --global user.name 'Your Name'
-          git config --global user.email 'your-username@users.noreply.github.com'
+          git config --global user.name 'Latex Compiler'
+          git config --global user.email 'noreplay@users.noreply.github.com'
           git add CV.pdf
           git commit -am "Auto updating CV"
           git push
-
-      # - name: config
-      #   run: |
-      #     git config --local user.name "latex_compiler"
-      # - name: check for changes
-      #   run: git status
-      # - name: stage changed files
-      #   run: git add .
-      # - name: commit changed files
-      #   run: git commit -m "Auto updating CV"
-      # - name: fetch from master
-      #   run: git fetch origin master
-      # - name: push code to master
-      #   run: git push origin HEAD:master
-      
