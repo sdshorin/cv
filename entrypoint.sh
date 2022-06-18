@@ -9,7 +9,7 @@ echo "Endpoint here!"
 
 # echo "test CV" > working_dir/CV.pdf
 
-sudo apt-get install texlive
+apt-get install texlive
 
 pdflatex --output-directory=./working_dir CV.tex
 
