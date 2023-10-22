@@ -26,8 +26,9 @@
 %% typesets columns of text in parallel
 \usepackage{paracol}
 \usepackage{hyperref}
+\usepackage{fontawesome5}
 
-
+\usepackage{multicol}
 %% uncomment and edit to change name and section color
 % \definecolor{custom}{HTML}{582766}  % hex code
 % \colorlet{name}{custom}
@@ -56,7 +57,7 @@
     \usepackage{helvet}  % Helvetica is always reliable
     % \usepackage[lf]{FiraSans}  % Fira Sans is fun but professional
     \renewcommand{\familydefault}{\sfdefault}
-\fi
+\fi 
 %%--------------------
 %% NOTE ON FONTS: if you use lualatex or xelatex you can use any font for 
 %% which you have .otf or .ttf files and a license (see point #4 at:
@@ -89,28 +90,23 @@
 
 % sets the left:right column width ratio to 65:35.
 \columnratio{0.65}
-
 %% Start a 2-column paracol. Both columns automatically break 
 %% across pages if things get too long.
 \begin{paracol}{2}
-
-
 %% not all of these are required, comment out any you don't want
 \input{content/experience}
 \input{content/education}
-\input{content/projects}
 % \input{content/publications_resume}
 \switchcolumn
 \input{content/skills}
-% \input{content/languages}
-% \input{content/awards}
-% \input{content/involvement}
-% \switchcolumn
-% \newpage  % force new page for current column
-% \input{content/references}
-
-
+\switchcolumn
 \end{paracol}
+\vspace{7px}
+% \columnratio{0.99} % try to fix - don't work
+\input{content/projects}
 
+
+% \end{paracol}
+ 
 
 \end{document}

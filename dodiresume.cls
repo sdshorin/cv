@@ -27,14 +27,7 @@
 \ProcessOptions\relax
 
 \LoadClass{article}
-%% altacv v1.3.2 Hopefully this helps make the PDF
-%% file more 'friendly' with copy-paste etc
-%% altacv v1.6.1 Temporary fix for pdfx incompatibility; see https://tex.stackexchange.com/a/610445
-\RequirePackage{etoolbox}
-\@ifl@t@r\fmtversion{2021-06-01}%
-    {\AddToHook{package/after/xmpincl}
-    {\patchcmd\mcs@xmpincl@patchFile{\if\par}{\ifx\par}{}{\fail}}}{}
-\RequirePackage[a-1b]{pdfx}
+
 %% altacv v1.3.3 Temporary fix for pdfx and biblatex incompatibility
 %% (Thanks to @badetitou for highlighting this issue)
 %% https://github.com/plk/biblatex/issues/1044
@@ -199,12 +192,18 @@
 \NewInfoField{orcid}{}[https://orcid.org/]
 \NewInfoField{location}{}
 
-\newcommand{\namefont}{\bfseries\fontsize{36pt}{36pt}\selectfont}
-\newcommand{\detaliesfont}{\bfseries\fontsize{9pt}{9pt}\selectfont}
+% \newcommand{\namefont}{\bfseries\fontsize{36pt}{36pt}\selectfont}
+% \newcommand{\detaliesfont}{\bfseries\fontsize{9pt}{9pt}\selectfont}
+% \newcommand{\personalinfofont}{\normalsize}
+% \newcommand{\cvsectionfont}{\large\bfseries\MakeUppercase}
+% \newcommand{\cvsubsectionfont}{\normalsize\bfseries}
+\usepackage{lmodern} % Improved font rendering
+
+\newcommand{\namefont}{\bfseries\fontsize{32pt}{32pt}\selectfont}
+\newcommand{\detaliesfont}{\fontsize{9pt}{11pt}\selectfont}
 \newcommand{\personalinfofont}{\normalsize}
 \newcommand{\cvsectionfont}{\large\bfseries\MakeUppercase}
 \newcommand{\cvsubsectionfont}{\normalsize\bfseries}
-
 
 \newcommand{\makecvheader}{%
     \setlength\tabcolsep{0pt}
@@ -213,11 +212,19 @@
 		\begin{tabular}{>{}l}
 			\includegraphics[width=0.2\linewidth]{photo.jpg}
 		\end{tabular}
-        \begin{minipage}{0.47\textwidth}%
+		\hspace{20pt} % Add horizontal space between photo and name
+        &
+        \begin{minipage}{0.43\textwidth} % Adjust width to fit
             {\namefont\color{name}{\@name}\par}
 			\begin{minipage}{0.877\textwidth}%
-				{\detaliesfont\color{name}{Game Developer with 3+ year of experience. \\
-				Skilled in implementing of algorithms,\\knowledgeable in computer graphic.}\par}
+                \vspace{10pt}
+				{\detaliesfont\color{name}{Game Developer with 4.5+ years of experience. \\
+                \vspace{10pt}
+                \fontsize{8}{10.8}\selectfont{
+                Passionate about math and Computer Science, \\
+                I thrive in everything from low-level assembly and C \\
+                to high-level systems and DevOps practices. 
+				}\par}}
 			\end{minipage}
         \end{minipage}
 		
@@ -226,13 +233,22 @@
         \end{tabular}
     \hfill%
     \end{tabular}
-    \vspace{6pt}}
+    % \vspace{6pt}
+}
+
+
 
 \newcommand{\cvsection}[2][]{%
-    \nointerlineskip\vspace{18pt}%
+    \nointerlineskip\vspace{6pt}%   <--- Adjust this space if needed
     \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}}%
     {\color{heading}\cvsectionfont{#2}}
-    \vspace{0pt}}
+    % \vspace{6pt}
+    }  %   <--- Adjust this space if needed
+
+\newcommand{\cvskill}[1]{
+    \small{#1}\par
+    \vspace{3pt}}  %   <--- Adjust this space if needed
+
 
 \newcommand{\cvsubsection}[1]{%
     \vspace{12pt}
@@ -251,7 +267,7 @@
 \newcommand{\cvproject}[4]{
     \vspace{6pt}
     {\color{accent}\normalsize\textbf{#1}}\par
-    {\small\MakeUppercase{#2~--~}\textit{#3}}\par
+    {\small\MakeUppercase{#2~--~}\textit{#3}} %\par
     \ifstrequal{#4}{}{}{\href{#4}{\small\color{GdocLink}\underline{Source code}}\par}}
     
 \newcommand{\cvpub}[4]{
@@ -278,8 +294,8 @@
     {\small\MakeUppercase{#2}}\par
     \ifstrequal{#3}{}{}{\small\textit{#3}}\par}
 
-\newcommand{\cvskill}[1]{
-    \small{#1}\par}
+% \newcommand{\cvskill}[1]{
+%     \small{#1}\par}
 
 \newcommand{\cvref}[5]{%
     \vspace{6pt}
