@@ -18,8 +18,12 @@ jobs:
         run: pdflatex  CV.tex
       # - name: Run tests
       #   run: docker run -v ${PWD}:/working_dir local
-    
+      - name: Check current directory
+        run: |
+            pwd
+            ls -la
       - name: Commit changes
+        working-directory: ${{ github.workspace }}
         run: |
           apk --no-cache add git
           git config --global user.name 'Latex Compiler'
