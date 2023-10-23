@@ -21,6 +21,7 @@ jobs:
     
       - name: Commit changes
         run: |
+          apt-get install git
           git config --global user.name 'Latex Compiler'
           git config --global user.email 'noreplay@users.noreply.github.com'
           git add CV.pdf
