@@ -207,33 +207,28 @@
 
 \newcommand{\makecvheader}{%
     \setlength\tabcolsep{0pt}
-    \begin{tabular}{lll}
-        \raggedright%
-		\begin{tabular}{>{}l}
-			\includegraphics[width=0.2\linewidth]{photo.jpg}
-		\end{tabular}
-		\hspace{20pt} % Add horizontal space between photo and name
-        &
-        \begin{minipage}{0.43\textwidth} % Adjust width to fit
+    \begin{tabular}{ll}
+        \begin{minipage}{0.63\textwidth} % Adjust width to fit
             {\namefont\color{name}{\@name}\par}
-			\begin{minipage}{0.877\textwidth}%
+			\begin{minipage}{0.92\textwidth}%
                 \vspace{10pt}
-				{\detaliesfont\color{name}{Game Developer with 4.5+ years of experience. \\
-                \vspace{10pt}
-                \fontsize{8}{10.8}\selectfont{
-                Passionate about math and Computer Science, \\
-                I thrive in everything from low-level assembly and C \\
+				{\detaliesfont\color{name}{Game Developer with 4.5+ years of experience.
+                % \vspace{10pt}
+                % \fontsize{8}{10.8}\selectfont{
+                Passionate about math and Computer Science, 
+                I excel in a diverse range of technologies, spanning from  low-level assembly and C 
                 to high-level systems and DevOps practices. 
-				}\par}}
+				}\par}
 			\end{minipage}
         \end{minipage}
 		
-        &\begin{tabular}{>{\color{accent}}l}
+        \hspace{17pt}
+        \begin{tabular}{>{\color{accent}}l}
             \personalinfofont\@personalinfo\par
         \end{tabular}
     \hfill%
     \end{tabular}
-    % \vspace{6pt}
+    \vspace{6pt}
 }
 
 
