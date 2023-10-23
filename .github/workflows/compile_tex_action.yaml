@@ -14,8 +14,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      - name: Run script
-        run: entrypoint.sh
+      - name: Build Latex
+        run: pdflatex  CV.tex
       # - name: Run tests
       #   run: docker run -v ${PWD}:/working_dir local
     
