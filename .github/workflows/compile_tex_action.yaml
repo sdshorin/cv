@@ -9,6 +9,7 @@ on:
 jobs: 
   compile:
     runs-on: ubuntu-latest
+    container: kjarosh/latex:2023.1
     name: Compile tex CV
     steps:
       - name: Check out code

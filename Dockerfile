@@ -11,8 +11,13 @@ RUN apt-get update && \
     dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update
-RUN apt-get install -y  texlive-latex-recommended 
-RUN tlmgr init-usertree
+# RUN cd /tmp
+# RUN wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz 
+# RUN zcat < install-tl-unx.tar.gz | tar xf -
+# RUN cd install-tl-*
+# RUN perl ./install-tl --no-interaction
+# # RUN apt-get install -y  texlive-latex-recommended 
+# RUN tlmgr init-usertree
 RUN tlmgr install fontawesome5
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
