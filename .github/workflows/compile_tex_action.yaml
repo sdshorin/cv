@@ -20,10 +20,11 @@ jobs:
         run: pdflatex  CV.tex
       # - name: Run tests
       #   run: docker run -v ${PWD}:/working_dir local
-      - name: Check current directory
+      - name: Install git
         run: |
-            pwd
-            ls -la
+            apk upgrade --no-cache
+            apk --no-cache add git
+            
       - uses: EndBug/add-and-commit@v9
         with:
           add: CV.pdf
