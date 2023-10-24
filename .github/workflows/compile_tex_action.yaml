@@ -22,8 +22,9 @@ jobs:
       #   run: docker run -v ${PWD}:/working_dir local
       - name: Install git
         run: |
-            apk upgrade --no-cache
+            apk update && apk upgrade
             apk --no-cache add git
+            git --version
             git config --global --add safe.directory $(realpath .)
             git checkout main
             
