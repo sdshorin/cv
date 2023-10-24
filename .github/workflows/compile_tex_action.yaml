@@ -25,6 +25,7 @@ jobs:
             apk upgrade --no-cache
             apk --no-cache add git
             git config --global --add safe.directory $(realpath .)
+            git checkout main
             
       - uses: EndBug/add-and-commit@v9
         with:
