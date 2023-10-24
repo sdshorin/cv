@@ -17,12 +17,11 @@ jobs:
             apk update && apk upgrade
             apk --no-cache add git
             git --version
-            git config --global --add safe.directory $(realpath .)
-            git checkout main
       - name: Check out code
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
+      
       - name: Build Latex
         run: pdflatex  CV.tex
       # - name: Run tests
