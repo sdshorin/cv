@@ -27,12 +27,14 @@ jobs:
       - name: Commit changes
         working-directory: ${{ github.workspace }}
         run: |
-          apk update & apk upgrade
-          apk --no-cache add git
+          apk --no-cache add sudo
+          
+          sudo apk update & sudo  apk upgrade
+          sudo  apk --no-cache add git
           # chown -R root:root .
-          git config --global --add safe.directory $(realpath .)
-          git config --global user.name 'Latex Compiler'
-          git config --global user.email 'noreplay@users.noreply.github.com'
-          git add CV.pdf
-          git commit -am "Auto updating CV"
-          git push origin HEAD:main
+          sudo  git config --global --add safe.directory $(realpath .)
+          sudo  git config --global user.name 'Latex Compiler'
+          sudo  git config --global user.email 'noreplay@users.noreply.github.com'
+          sudo git add CV.pdf
+          sudo git commit -am "Auto updating CV"
+          sudo git push origin HEAD:main
