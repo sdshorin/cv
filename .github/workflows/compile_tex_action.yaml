@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
       - name: Build Latex
         run: pdflatex  CV.tex
       # - name: Run tests
@@ -25,8 +27,9 @@ jobs:
       - name: Commit changes
         working-directory: ${{ github.workspace }}
         run: |
+          apk update & apk upgrade
           apk --no-cache add git
-          chown -R root:root .
+          # chown -R root:root .
           git config --global --add safe.directory $(realpath .)
           git config --global user.name 'Latex Compiler'
           git config --global user.email 'noreplay@users.noreply.github.com'
