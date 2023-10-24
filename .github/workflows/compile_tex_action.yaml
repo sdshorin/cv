@@ -12,6 +12,13 @@ jobs:
     container: kjarosh/latex:2023.1
     name: Compile tex CV
     steps:
+      - name: Install git
+        run: |
+            apk update && apk upgrade
+            apk --no-cache add git
+            git --version
+            git config --global --add safe.directory $(realpath .)
+            git checkout main
       - name: Check out code
         uses: actions/checkout@v2
         with:
@@ -20,13 +27,6 @@ jobs:
         run: pdflatex  CV.tex
       # - name: Run tests
       #   run: docker run -v ${PWD}:/working_dir local
-      - name: Install git
-        run: |
-            apk update && apk upgrade
-            apk --no-cache add git
-            git --version
-            git config --global --add safe.directory $(realpath .)
-            git checkout main
             
       - uses: EndBug/add-and-commit@v9
         with:
