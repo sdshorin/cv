@@ -24,8 +24,11 @@ jobs:
       
       - name: Build Latex
         run: pdflatex  CV.tex
-      # - name: Run tests
-      #   run: docker run -v ${PWD}:/working_dir local
+      
+      - name: Config git
+        run: |
+            git config --global --add safe.directory $(realpath .)
+            git checkout main
             
       - uses: EndBug/add-and-commit@v9
         with:
