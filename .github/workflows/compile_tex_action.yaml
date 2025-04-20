@@ -1,5 +1,4 @@
-
-name: Compile-Tex
+name: Compile-Tex-CV
 
 on:
   push:
@@ -10,21 +9,28 @@ jobs:
   compile:
     runs-on: ubuntu-latest
     container: kjarosh/latex:2023.1
-    name: Compile tex CV
+    name: Compile multilingual CV
     steps:
       - name: Install git
         run: |
             apk update && apk upgrade
             apk --no-cache add git
             git --version
+      
       - name: Check out code
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
       
-      - name: Build Latex
-        run: pdflatex  CV.tex
+      - name: Build English CV
+        run: xelatex cv_en.tex
       
+      - name: Build Russian CV
+        run: xelatex cv_ru.tex
+      
+      - name: Copy Russian CV to CV.pdf
+        run: cp cv_ru.pdf CV.pdf
+            
       - name: Config git
         run: |
             git config --global --add safe.directory $(realpath .)
@@ -32,8 +38,10 @@ jobs:
             
       - uses: EndBug/add-and-commit@v9
         with:
-          add: CV.pdf
-          author_name: Latex Compiler
-          author_email: noreplay@users.noreply.github.com
-          message: Automatically updating the CV
-      
+          add: |
+            cv_en.pdf
+            cv_ru.pdf
+            CV.pdf
+          author_name: LaTeX Compiler
+          author_email: noreply@github.com
+          message: Automatically updating the multilingual CV

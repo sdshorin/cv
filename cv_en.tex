@@ -1,0 +1,107 @@
+\documentclass{dodiresume}
+
+\begin{document}
+
+\begin{minipage}{0.7\textwidth}
+\begin{flushleft}
+\LARGE \textbf{\textcolor{namecolor}{Sergei Shorin}} \normalsize{(27 years old)}
+
+\vspace{0.3cm}
+Developer with 6+ years of experience. Passionate about mathematics and computer science; working with both low-level C/assembly and high-load services and DevOps infrastructure.
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.28\textwidth}
+\begin{flushright}
+\faMapMarker\ Moscow, Russia \\
+\faEnvelope\ \href{mailto:sdshorin@gmail.com}{sdshorin@gmail.com} \\
+\faPaperPlane\ Telegram @shorins \\
+\faGithub\ \href{https://github.com/sdshorin}{github.com/sdshorin}
+\end{flushright}
+\end{minipage}
+
+\vspace{0.1cm}
+
+\section{Work Experience}
+
+\experience{Full‑stack Godot Game Developer}{Funexpected LLC, Moscow}{
+\textbf{Stack:} GDScript, Python, C++, C, Objective‑C, Godot Engine, MongoDB, Docker, GitHub Actions
+}{March 2019 — Present (6 years)}
+
+\begin{itemize}
+\item Developing an interactive educational application for children aged 3-8 (App Store / Google Play).
+\item Created 15 mini-games and a unified educational course; applied procedural content generation (10 games).
+\item Implemented an account system with children's multi-profiles.
+\item Launched a telemetry collection service and parent reports.
+\item Organized an on-demand content distribution service — the application downloads only the necessary courses and languages.
+\item Developed a handwriting recognition system (CRNN + libonnx) — 98\% accuracy, +3 MB weight.
+\item Set up A/B testing
+\item Created animations and shaders; the project received \textit{The Webby Award} for visual design.
+\item Developed the server side of the application
+\end{itemize}
+
+\section{Education}
+
+\education{Bachelor of Applied Mathematics and Data Science}{HSE University, Moscow}{September 2021 — June 2025 (expected)}
+
+\vspace{0.3cm}
+
+\education{École 42 (21 coding school by Sberbank)}{}{February 2019 — August 2023}
+
+\vspace{0.3cm}
+
+\education{Yandex Backend Development School (C++)}{}{June — July 2024 — userver, microservices, testing, databases, DevOps, monitoring}
+
+\section{Tech Stack}
+
+\begin{itemize}
+\item \textbf{Languages:} C++, C, Python, Go
+\item \textbf{Engine:} Godot Engine (GDScript)  
+\item \textbf{DevOps:} Kubernetes, Docker
+\item \textbf{Tools:} Git, CI/CD, Linux, Claude Code
+\item \textbf{Databases:} MongoDB, PostgreSQL
+\end{itemize}
+
+\section{Projects (selection)}
+
+\subsection{Backend / Highload}
+
+\begin{itemize}
+\item \project{Generia}{HSE graduation project: "Instagram-for-virtual-worlds", Go + Microservices + LLM + Stable Diffusion. \href{https://github.com/sdshorin/generia}{code}}
+\item \project{HTTP WebServer}{C++ HTTP/1.1 server with CGI, handles 3k rps. \href{https://github.com/sdshorin/webserv}{code}}
+\end{itemize}
+
+\subsection{Data Science / DL}
+
+\begin{itemize}
+\item \project{number\_CRNN}{PyTorch. Recognition of handwritten numbers and signs. CRNN architecture. \href{https://github.com/sdshorin/number_CRNN}{code}}
+\item \project{dl‑image‑classification}{PyTorch, WandB; classification of 200 classes. \href{https://github.com/sdshorin/hse-dl-image-classification}{code}}
+\item \project{en‑ru‑translation}{Transformer + PyTorch, WandB, Hydra + FastAPI translation demo service. \href{https://github.com/sdshorin/en-ru-translation-service}{code}}
+\end{itemize}
+
+\subsection{Low‑Level}
+
+\begin{itemize}
+\item \project{ssl‑md5}{Implementation of MD5, SHA-2, DES, Base64; OOP in C. \href{https://github.com/sdshorin/ft_ssl_md5}{code}}
+\item \project{Snake‑RISC‑V}{Game on RISC-V ASM, memory-mapped I/O, graphics. \href{https://github.com/sdshorin/snake-sssembly-RISCV}{code}}
+\item \project{libonnx‑fork}{ONNX engine in C; Added recurrent layer, dynamic quantization. \href{https://github.com/sdshorin/libonnx}{code}}
+\end{itemize}
+
+\subsection{GameDev / Graphics}
+
+\begin{itemize}
+\item \project{Game Engine}{C++ engine with CPU renderer and animations. \href{https://github.com/sdshorin/graphic_engine}{code}}
+\end{itemize}
+
+\subsection{Additional Mini-Projects}
+
+\begin{itemize}
+\item \project{con‑run}{P2P cryptocurrency node (Go, Gossip/PEX). \href{https://github.com/sdshorin/con_concoin/blob/main/rdx/con/con-run/README.md}{code}}
+\item \project{cv‑latex‑builder}{CI/CD for LaTeX resume. \href{https://github.com/sdshorin/cv}{code}}
+\item + More pet projects on \href{https://github.com/sdshorin}{GitHub}
+\end{itemize}
+
+\section{Languages}
+
+Russian — Native | English — B2 (Intermediate-High)
+
+\end{document}
