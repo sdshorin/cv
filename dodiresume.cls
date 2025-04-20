@@ -58,7 +58,8 @@
 
 \newcommand{\experience}[4]{
   \subsection{#1 — #2}
-  #3 \hfill \textit{#4} \\
+  #3 \\ 
+  \textit{#4} \\
 }
 
 \newcommand{\education}[3]{
