@@ -11,10 +11,12 @@ jobs:
     container: kjarosh/latex:2023.1
     name: Compile multilingual CV
     steps:
-      - name: Install git
+      - name: Install git and fonts
         run: |
             apk update && apk upgrade
             apk --no-cache add git
+            apk --no-cache add font-noto font-noto-cjk
+            fc-cache -f
             git --version
       
       - name: Check out code
@@ -27,9 +29,6 @@ jobs:
       
       - name: Build Russian CV
         run: xelatex cv_ru.tex
-      
-      - name: Copy Russian CV to CV.pdf
-        run: cp cv_ru.pdf CV.pdf
             
       - name: Config git
         run: |
@@ -41,7 +40,6 @@ jobs:
           add: |
             cv_en.pdf
             cv_ru.pdf
-            CV.pdf
           author_name: LaTeX Compiler
           author_email: noreply@github.com
           message: Automatically updating the multilingual CV

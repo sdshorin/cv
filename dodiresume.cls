@@ -4,6 +4,7 @@
 \LoadClass{article}
 
 \usepackage{fontspec}
+\usepackage{polyglossia}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
@@ -21,7 +22,9 @@
 
 \geometry{a4paper, margin=1.5cm, headheight=0.5cm}
 
-\setmainfont{Helvetica}[
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+\setmainfont{Noto Sans}[
   Scale = 0.9
 ]
 
