@@ -4,15 +4,14 @@
 
 \begin{minipage}{0.7\textwidth}
 \begin{flushleft}
-\LARGE \textbf{\textcolor{namecolor}{Sergei Shorin}} \normalsize{(27 years old)}
+\LARGE \textbf{\textcolor{namecolor}{Sergei Shorin}} \normalsize{(28 years old)}
 
 \vspace{0.3cm}
-Developer with 6+ years of experience. Passionate about mathematics and computer science; working with both low-level C/assembly and high-load services and DevOps infrastructure.
+Senior Go backend developer with 7+ years in software development. I design and run backend services with large data volumes (PostgreSQL, ClickHouse, Kafka) and ship risky changes in reversible stages. I use AI agents as a controlled tool, verifying their output with tests and real data. Passionate about mathematics and computer science, with a background in low-level C and assembly.
 \end{flushleft}
 \end{minipage}
 \begin{minipage}{0.28\textwidth}
 \begin{flushright}
-\faMapMarker\ Moscow, Russia \\
 \faEnvelope\ \href{mailto:sdshorin@gmail.com}{sdshorin@gmail.com} \\
 \faPaperPlane\ Telegram @shorins \\
 \faGithub\ \href{https://github.com/sdshorin}{github.com/sdshorin}
@@ -23,25 +22,42 @@ Developer with 6+ years of experience. Passionate about mathematics and computer
 
 \section{Work Experience}
 
-\experience{Full‑stack Godot Game Developer}{Funexpected LLC, Moscow}{
-\textbf{Stack:} GDScript, Python, C++, C, Objective‑C, Godot Engine, MongoDB, Docker, GitHub Actions
-}{March 2019 — Present (6 years) \href{https://apps.apple.com/app/id1473965253}{iOS}, \href{https://funexpectedapps.com}{site}}
+\experience{Senior Backend Developer (Go)}{Ozon}{
+\textbf{Stack:} Go, PostgreSQL, ClickHouse, Kafka, Elasticsearch, gRPC, Kubernetes, GitLab CI, Claude Code
+}{August 2025 — Present (Senior since September 2026)}
 
 \begin{itemize}
-\item Developing an interactive educational application for children aged 3-8 (App Store / Google Play).
-\item Created 15 mini-games and a unified educational course; applied procedural content generation (10 games).
-\item Implemented an account system with children's multi-profiles.
-\item Launched a telemetry collection service and parent reports.
-\item Organized an on-demand content distribution service — the application downloads only the necessary courses and languages.
-\item Developed a handwriting recognition system (CRNN + libonnx) — 98\% accuracy, +3 MB weight.
-\item Set up A/B testing
-\item Created animations and shaders; the project received \textit{The Webby Award} for visual design.
-\item Developed the server side of the application
+\item Building a mass-hiring CRM: the candidate journey from application to onboarding (warehouse, couriers, support).
+\item \textbf{PostgreSQL and ClickHouse:} traced recurring database degradations using production metrics: retuned autovacuum, dropped 24 unused indexes (90 GB), moved heavy queries from SQL to Go with shadow comparison in production. Migrated 700M events to ClickHouse with zero downtime and no API changes (at-least-once, deduplication, reads merged from two stores). Result: service p99 783 $\to$ 364 ms, DB CPU down by 84\%, database size 535 $\to$ 210 GB.
+\item \textbf{Email communication history service from scratch:} Kafka consumer, enrichment worker, sharded PostgreSQL, gRPC API; idempotent handling of duplicate and out-of-order events.
+\item \textbf{Legacy refactoring with AI agents:} replaced two incompatible slot-booking implementations (6 slot types) with a single model that enforces invariants at the database level. Proved correctness with 191 e2e scenarios and a staged rollout via runtime config (shadow async $\to$ sync $\to$ read switch), reconciled against real data. Result: legacy code removed, a smaller unified codebase, and fixed races and data inconsistencies the old architecture could not solve.
+\item \textbf{Generic async task engine:} shared PostgreSQL-backed queue, retries, batch and parallel processing; removed duplicated worker code, used by the team in 5+ processes.
+\item \textbf{Candidate workstation check system from scratch:} desktop app (Go + Wails, Windows/macOS), internet speed test microservice (WebSocket, load limits), CI/CD release process: tests, code signing and notarization, two approvals, rollback without a rebuild.
+\item \textbf{AI-assisted development in the team:} built a set of 10+ skills for AI agents (working on large tasks, local debugging, incident investigation, log search, migrations, tests, review) and train the team to work with agents.
+\item \textbf{Product development and support:} new vacancy launches and integrations, bulk Elasticsearch reindexing mechanism, incident investigations (lost update, cron timeouts), on-call duty, migration of services to PostgreSQL 17.
+\end{itemize}
+
+\experience{Backend / Full‑stack Developer}{Funexpected LLC}{
+\textbf{Stack:} Python, MongoDB, AWS, Docker, GitHub Actions, C++, C, Objective‑C, GDScript, Godot Engine
+}{March 2019 — August 2025 (6.5 years) \href{https://apps.apple.com/app/id1473965253}{iOS}, \href{https://funexpectedapps.com}{site}}
+
+\begin{itemize}
+\item Educational app for children aged 3-8 (App Store / Google Play): developed the backend (hosted on AWS), infrastructure and client.
+\item \textbf{Accounts and saves:} account and save system, including merging saves made during simultaneous play; family accounts with multiple children and school accounts with classes.
+\item \textbf{Statistics:} service that collects and processes in-game statistics; reports for parents and a separate website for teachers with class statistics.
+\item \textbf{On-demand content distribution:} the app downloads only the courses and languages it needs.
+\item \textbf{Infrastructure:} made build export 76x faster by optimizing file system operations, automated app uploads to the App Store, built an A/B testing system.
+\item \textbf{ML:} handwriting recognition (CRNN + libonnx) — 98\% accuracy; added the missing layers to the lightweight libonnx library, so the app size grew by only 3 MB.
+\item \textbf{Gamedev:} 15 mini-games and a unified educational course, procedural level generation (10 games); animations and shaders — the project received \textit{The Webby Award} for visual design.
 \end{itemize}
 
 \section{Education}
 
-\education{Bachelor of Applied Mathematics and Data Science}{HSE University, Moscow}{September 2021 — June 2025 (expected)}
+\education{Bachelor of Applied Mathematics and Data Science}{HSE University, Moscow}{September 2021 — June 2025. Thesis: using AI agents to develop large software systems (case study: Generia, Go microservices)}
+
+\vspace{0.3cm}
+
+\education{Ozon Route 256 (Go, Middle level)}{}{June — July 2025}
 
 \vspace{0.3cm}
 
@@ -54,11 +70,12 @@ Developer with 6+ years of experience. Passionate about mathematics and computer
 \section{Tech Stack}
 
 \begin{itemize}
-\item \textbf{Languages:} C++, C, Python, Go
-\item \textbf{Engine:} Godot Engine (GDScript)  
-\item \textbf{DevOps:} Kubernetes, Docker
-\item \textbf{Tools:} Git, CI/CD, Linux, Claude Code
-\item \textbf{Databases:} MongoDB, PostgreSQL
+\item \textbf{Languages:} Go, C++, C, Python
+\item \textbf{Backend:} Kafka, gRPC, microservices
+\item \textbf{Databases:} PostgreSQL, ClickHouse, Elasticsearch, MongoDB
+\item \textbf{DevOps:} AWS, Kubernetes, Docker, CI/CD (GitLab CI, GitHub Actions)
+\item \textbf{Tools:} Git, Linux, Claude Code (AI agents)
+\item \textbf{Engine:} Godot Engine (GDScript)
 \end{itemize}
 
 \section{Projects (selection)}
